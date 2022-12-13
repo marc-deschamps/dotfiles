@@ -1,26 +1,31 @@
 # My dotfiles
 
-Configuration used on my Arch with sway / waybar
-I totally dropped my gnome :)
+Configuration used on my [Arch Linux](https://archlinux.org/) with i3 / i3status
 
-# Install
+![screenshot](https://gitlab.com/pad92/dotfiles/-/raw/master/dist/archlinux/screenshot.png)
+
+
+# Install Dotfile
 
 ```sh
-git clone https://github.com/pad92/dotfiles.git ~/.dotfiles
+git clone https://gitlab.com/pad92/dotfiles.git ~/.dotfiles
 ./.dotfiles/install
 ```
+## Install only VIM
 
-# Lists of packages
+```sh
+curl -sSL https://gitlab.com/pad92/dotfiles/-/raw/master/vim.sh | sh
+```
 
-## Archlinux
+# ArchLinux
 
-![Screenshot](https://raw.githubusercontent.com/pad92/dotfiles/master/arch/screenshot.png)
+## My Setup
 
-### yay
+- [install.md](https://gitlab.com/pad92/dotfiles/-/blob/master/dist/archlinux/install.md)
+- [pkglist.txt](https://gitlab.com/pad92/dotfiles/-/tree/master/dist/archlinux/packages/)
 
-[Install](https://github.com/Jguer/yay#installation)
+# Ubuntu
 
-### My installed packages Lists :
+## My Setup
 
-* [from official repo](https://raw.githubusercontent.com/pad92/dotfiles/master/arch/pkglist.txt)
-* [from AUR](https://raw.githubusercontent.com/pad92/dotfiles/master/arch/pkglist_aur.txt)
+- [install.md](https://gitlab.com/pad92/dotfiles/-/raw/master/dist/ubuntu/install.sh)

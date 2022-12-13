@@ -5,32 +5,30 @@
 # The following line should contain a sharp s:
 # ß
 # If the above line is not correctly displayed, fix your editor first!
+#
+# ttf-font-awesome
 
 general {
 	colors         = true
 	interval       = 5
-	color_good     = "#2AA198"
-	color_bad      = "#586E75"
-	color_degraded = "#DC322F"
 }
 
+order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
+order += "battery all"
 order += "cpu_temperature 0"
 order += "cpu_usage"
-order += "load"
-order += "memory"
-order += "battery all"
+order += "volume master"
 order += "tztime date"
 
 battery all {
-	format                        = "%status %percentage %remaining"
+    format = "%status %percentage %remaining %emptytime"
     format_down                   = ""
-	status_bat                    = "🔋"
-	status_chr                    = "🔌"
-	status_full                   = "🔌"
-	status_unk                    = "♻"
-	low_threshold                 = 25
+	status_bat                    = ""
+	status_chr                    = ""
+	status_full                   = ""
+	low_threshold                 = 15
 	threshold_type                = percentage
 	hide_seconds                  = true
 	# Show percentage as interger
@@ -39,46 +37,41 @@ battery all {
 
 ethernet _first_ {
 	# if you use %speed, i3status requires root privileges
-	format_up   = "🔗 %speed"
+	format_up   = " %speed"
 	format_down = ""
 }
 
 tztime date {
-    format = "%a %d.%m. %H:%M"
-	separator             = false
+    format = " %a %d.%m.%Y  %H:%M"
 	separator_block_width = 5
 }
 
 wireless _first_ {
-	format_up   = "📡 %essid (%quality) %ip"
-	format_down = ""
+        format_up = " %quality, %essid, %ip"
+        format_down = ""
 }
 
 cpu_temperature 0 {
-	format                 = "🌡 %degrees °C"
-	path                   = "/sys/class/thermal/thermal_zone0/temp"
+	format                 = " %degrees °C"
+	path                   = "/sys/class/hwmon/hwmon3/temp1_input"
 	max_threshold          = 75
-	format_above_threshold = "🥵 %degrees ⁰C"
-	separator              = false
+	format_above_threshold = " %degrees ⁰C"
 }
 
 cpu_usage {
-	format                 = "📈 %usage"
-	max_threshold          = 75
-	format_above_threshold = "📈 %usage"
-	separator              = false
+    format = " %usage"
+	max_threshold = 95
+	degraded_threshold = 80
 }
 
-load {
-	format        = "%5min %15min"
-	max_threshold = "4"
-	separator     = false
+volume master {
+	format = " %volume"
+        format_muted = ""
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
 }
 
-memory {
-	format             = "%percentage_used"
-	memory_used_method = "memavailable"
-	threshold_degraded = "15%"
-	threshold_critical = "5%"
-	threshold_degraded = "%percentage_used %available left free"
+disk "/" {
+        format = " %avail"
 }

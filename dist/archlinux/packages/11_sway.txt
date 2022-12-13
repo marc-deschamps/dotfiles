@@ -1,0 +1,7 @@
+brightnessctl
+kanshi
+sway
+swaybg
+swayidle
+swaylock
+waybar

@@ -8,13 +8,12 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
-"Plugin 'bling/vim-bufferline'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
+Plugin 'chrisbra/colorizer'
+Plugin 'editorconfig/editorconfig-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -29,8 +28,6 @@ let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_number_column='blue'
 let g:gruvbox_imporeved_strings=1
 colorscheme gruvbox
-
-
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
@@ -66,7 +63,7 @@ set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 set autowrite		" Automatically save before commands like :next and :make
 "set hidden		" Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
+set mouse=		" Disable mouse usage
 set laststatus=2 " Always show status bar
 "set showtabline=2 " Always show tabs
 
@@ -117,7 +114,6 @@ set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set foldmethod=indent
 set foldenable
 highlight Folded ctermfg=DarkGreen ctermbg=Black
-
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
